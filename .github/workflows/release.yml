@@ -51,7 +51,13 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore
-
+      - name: Download and extract ConfuserEx CLI
+        run: |
+          mkdir -p ./EmpireCompiler/Data
+          curl -L -o ./EmpireCompiler/Data/confuserex.zip https://github.com/mkaring/ConfuserEx/releases/download/v1.6.0/ConfuserEx-CLI.zip
+          unzip ./EmpireCompiler/Data/confuserex.zip -d ./EmpireCompiler/Data/ConfuserEx-CLI
+          rm ./EmpireCompiler/Data/confuserex.zip
+        shell: bash
       - name: Build self-contained assembly
         run: |
           dotnet publish -c Release -r ${{ env.runtime }} --self-contained -o ./publish/${{ env.runtime }}
