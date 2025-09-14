@@ -63,7 +63,13 @@ jobs:
             --include "EmpireCompiler" \
             publish/EmpireCompiler-${{ env.runtime }}-${{ github.event.inputs.release_version }}.tgz
         shell: bash
-
+      - name: Download and extract ConfuserEx CLI
+        run: |
+          mkdir -p ./EmpireCompiler/Data
+          curl -L -o confuserex.zip https://github.com/mkaring/ConfuserEx/releases/download/v1.6.0/ConfuserEx-CLI.zip
+          unzip confuserex.zip -d ./EmpireCompiler/Data/
+          rm confuserex.zip
+        shell: bash
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
