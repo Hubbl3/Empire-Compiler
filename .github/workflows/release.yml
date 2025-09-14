@@ -58,7 +58,7 @@ jobs:
         shell: bash
       - name: Download and extract ConfuserEx CLI
         run: |
-          
+          mkdir -p ./publish/${{ env.runtime }}/ConfuserEx-CLI
           curl -L -o confuserex.zip https://github.com/mkaring/ConfuserEx/releases/download/v1.6.0/ConfuserEx-CLI.zip
           unzip confuserex.zip -d ./publish/${{ env.runtime }}/ConfuserEx-CLI
           rm confuserex.zip
