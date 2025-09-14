@@ -67,7 +67,7 @@ jobs:
         run: |
           mkdir -p ./EmpireCompiler/Data
           curl -L -o confuserex.zip https://github.com/mkaring/ConfuserEx/releases/download/v1.6.0/ConfuserEx-CLI.zip
-          unzip confuserex.zip -d ./EmpireCompiler/Data/
+          unzip confuserex.zip -d ./EmpireCompiler/Data/ConfuserEx-CLI
           rm confuserex.zip
         shell: bash
       - name: Upload build artifacts
